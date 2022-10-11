@@ -9,7 +9,7 @@ import (
 
 type Repository interface {
 	GetAll(ctx context.Context) ([]domain.Ticket, error)
-	GetTicketByDestination(ctx context.Context, destination string) ([]domain.Ticket, error)
+	GetTicketsByCountry(ctx context.Context, destination string) ([]domain.Ticket, error)
 }
 
 type repository struct {
@@ -31,7 +31,7 @@ func (r *repository) GetAll(ctx context.Context) ([]domain.Ticket, error) {
 	return r.db, nil
 }
 
-func (r *repository) GetTicketByDestination(ctx context.Context, destination string) ([]domain.Ticket, error) {
+func (r *repository) GetTicketsByCountry(ctx context.Context, destination string) ([]domain.Ticket, error) {
 
 	var ticketsDest []domain.Ticket
 
